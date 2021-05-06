@@ -1,0 +1,8 @@
+version: "3"
+services: 
+    postgres:
+        image: "postgres:latest"
+    main:
+        image: "test:0.1"
+        ports:
+            - "80:5000"
