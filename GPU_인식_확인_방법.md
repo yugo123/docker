@@ -23,7 +23,7 @@ from tensorflow.python.client import device_lib
 device_lib.list_local_devices()
 ```
 
-![](./GPU_인식_확인_방법/.figures/p1.png =1000x)
+ ![](./GPU_인식_확인_방법/.figures/p1.png =1000x)
 
 제대로 인식되었다면 위의 그림과 같이 'CPU:0'와 보유하고 있는 GPU의 종류가 나타납니다.
     
@@ -34,7 +34,7 @@ import torch
 torch.cuda.is_available()
 ``` 
 
-![](./GPU_인식_확인_방법/.figures/p2.png =300x)
+ ![](./GPU_인식_확인_방법/.figures/p2.png =300x)
 
 제대로 인식되었다면 위의 그림과 같이 True가 나타납니다. 만약 False가 나왔다면 아래의 오류 해결 방법을 확인하세요.
 
@@ -44,7 +44,7 @@ import torch
 torch.cuda.device_count()
 ```
 
-![](./GPU_인식_확인_방법/.figures/p3.png =300x)
+ ![](./GPU_인식_확인_방법/.figures/p3.png =300x)
 
 제대로 인식되었다면 위의 그림과 같이 기기에 인식된 gpu의 개수가 표시됩니다.
 
@@ -54,7 +54,7 @@ import torch
 torch.cuda.device(0)
 ```
 
-![](./GPU_인식_확인_방법/.figures/p4.png =300x)
+ ![](./GPU_인식_확인_방법/.figures/p4.png =300x)
 제대로 인식되었다면 위의 그림과 같이 device로 잡힌 gpu의 종류를 보여줍니다.
 
 ## 2. GPU 인식 관련 오류
