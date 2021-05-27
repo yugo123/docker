@@ -34,7 +34,7 @@ import torch
 torch.cuda.is_available()
 ``` 
 
- ![](./GPU_인식_확인_방법/.figures/p2.png =300x)
+ ![](./GPU_인식_확인_방법/.figures/p2.png)
 
 제대로 인식되었다면 위의 그림과 같이 True가 나타납니다. 만약 False가 나왔다면 아래의 오류 해결 방법을 확인하세요.
 
@@ -44,7 +44,7 @@ import torch
 torch.cuda.device_count()
 ```
 
- ![](./GPU_인식_확인_방법/.figures/p3.png =300x)
+ ![](./GPU_인식_확인_방법/.figures/p3.png)
 
 제대로 인식되었다면 위의 그림과 같이 기기에 인식된 gpu의 개수가 표시됩니다.
 
@@ -54,7 +54,7 @@ import torch
 torch.cuda.device(0)
 ```
 
- ![](./GPU_인식_확인_방법/.figures/p4.png =300x)
+ ![](./GPU_인식_확인_방법/.figures/p4.png)
 제대로 인식되었다면 위의 그림과 같이 device로 잡힌 gpu의 종류를 보여줍니다.
 
 ## 2. GPU 인식 관련 오류
