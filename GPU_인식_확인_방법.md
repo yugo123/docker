@@ -23,7 +23,7 @@ from tensorflow.python.client import device_lib
 device_lib.list_local_devices()
 ```
 
- ![](./GPU_인식_확인_방법/.figures/p1.png =1000x)
+ ![](./GPU_인식_확인_방법/.figures/p1.png)
 
 제대로 인식되었다면 위의 그림과 같이 'CPU:0'와 보유하고 있는 GPU의 종류가 나타납니다.
     
