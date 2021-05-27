@@ -1,4 +1,3 @@
-
 [[_TOC_]]
 - [GPU 서버에서 GPU 인식 확인 방법](#gpu------gpu---------)
   * [1. GPU 인식 확인](#1-gpu------)
@@ -201,3 +200,4 @@ GPU가 2개 설치된 GPU 서버의 경우를 예시로 들면
 
 -tensorflow에서 gpu 2개 이상 사용하기 위한 방법
 > https://www.tensorflow.org/tutorials/distribute/custom_training?hl=ko
+
