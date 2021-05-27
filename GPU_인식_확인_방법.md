@@ -3,7 +3,7 @@
 
 # GPU 서버에서 GPU 인식 확인 방법
 
-1. GPU 인식 확인
+## 1. GPU 인식 확인
     1. tensorflow
         device_lib을 이용하는 방법입니다.
         ```
@@ -45,7 +45,7 @@
         ![](./GPU_인식_확인_방법/.figures/p4.png =300x)
         제대로 인식되었다면 위의 그림과 같이 device로 잡힌 gpu의 종류를 보여줍니다.
 
-2. GPU 인식 관련 오류
+## 2. GPU 인식 관련 오류
     torch.cuda.is_available()이 False로 나오거나 device_lib.list_local_devices()에서 GPU가 인식되지 않는 경우 다음의 유형을 확인해야 합니다.
 
     GPU 서버를 이용하는 경우 2.1과 2.2는 이미 제대로 구성되었기 때문에 2.3부터 확인하세요!
@@ -104,7 +104,7 @@
             ![](./GPU_인식_확인_방법/.figures/p14.png =1000x)
         
 
-3. cpu만 사용하는 코드에서 gpu 사용하는 코드로 변환 방법
+## 3. cpu만 사용하는 코드에서 gpu 사용하는 코드로 변환 방법
 
     1. tensorflow-gpu
         tensorflow-gpu 라이브러리를 설치하였고 CUDA가 설치되었다면 기본적으로 GPU:0를 이용해 연산을 진행합니다.
