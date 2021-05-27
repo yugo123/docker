@@ -56,7 +56,7 @@ GPU 서버를 이용하는 경우 2.1과 2.2는 이미 제대로 구성되었기
 CUDA는 그래픽카드에서 병렬처리를 할 수 있는 플랫폼 및 API 모델로 그래픽 카드를 이용하여 GPU 연산을 이용하기 위해서는 CUDA가 무조건 필요합니다.
 
 그래픽 카드에 맞는 CUDA 버전은 다음의 사이트를 통해 확인할 수 있습니다.
-```https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications ```
+https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications
 
 간단한 예시로 GPU 서버에는 RTX 6000 2개가 장착되어 있습니다. 위의 사이트에서 RTX 6000를 찾아보면 적정 Compute capability가 7.5로 나와있습니다.
 
@@ -118,11 +118,11 @@ tensorflow-gpu 라이브러리를 설치하였고 CUDA가 설치되었다면 기
 import tensorflow as tf
 
 with tf.device("GPU:0"):
-get_something_from_dataset()
+  get_something_from_dataset()
 {} <= 여기에 들어가는 변수 또는 method는 GPU:0의 메모리에 저장됩니다.
 
 with tf.device("GPU:1"):
-caculate_number_in_dataset()
+  caculate_number_in_dataset()
 {} <= 여기에 들어가는 변수 또는 method는 GPU:1의 메모리에 저장됩니다.
 ```
 그렇기 때문에 GPU:0에 저장된 변수와 GPU:1에 저장된 변수는 서로 연산할 수 없고 만약 연산을 하기 위해서는 꼭 같은 device에 저장되어 있어야 합니다.
@@ -133,18 +133,18 @@ caculate_number_in_dataset()
 mirrored_strategy = tf.distribute.MirroredStrategy()
 
 with mirrored_strategy.scope():
-get_something_from_dataset()
-caculate_number_in_dataset()
+  get_something_from_dataset()
+  caculate_number_in_dataset()
 ```
 
 tf.distribute.MirroredStrategy()을 공백으로 입력하면 tensorflow가 인식한 모든 GPU에 분산으로 변수와 method들을 복제하여 gpu 메모리에 저장합니다. 만약 특정 GPU에만 복사하고 싶다면 mirrored_strategy = tf.distribute.MirroredStrategy(devices=["/gpu:0","/gpu:1"])와 같이 입력하시면 됩니다.
 
 ```
 with mirrored_strategy.scope():
-get_something_from_dataset()
+  get_something_from_dataset()
 
 with mirrored_strategy.scope():
-caculate_number_in_dataset()
+  caculate_number_in_dataset()
 ```
 위와 같이 mirrored_strategy.scope()를 두개로 분리하여 적용할 경우 변수나 method가 꼬여서 계산되지 않는 경우가 생기므로 하나의 scope 구문내에서 모든 함수와 변수를 처리하길 권장드립니다.
 
@@ -180,6 +180,7 @@ model1(device=device)
 ```
 model = nn.DataParallel(model, list({gpu Index들}))
 
+GPU가 2개 설치된 GPU 서버의 경우를 예시로 들면
 예) netG = nn.DataParallel(netG, list(range(2)))
 또는 netG = nn.DataParallel(netG, list([0, 1]))
 ```
@@ -188,4 +189,4 @@ model = nn.DataParallel(model, list({gpu Index들}))
 # Appendix
 
 -tensorflow에서 gpu 2개 이상 사용하기 위한 방법
-url : https://www.tensorflow.org/tutorials/distribute/custom_training?hl=ko
+> https://www.tensorflow.org/tutorials/distribute/custom_training?hl=ko
