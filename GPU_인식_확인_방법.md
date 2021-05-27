@@ -16,7 +16,7 @@
         제대로 인식되었다면 위의 그림과 같이 'CPU:0'와 보유하고 있는 GPU의 종류가 나타납니다.
     
     2. pytorch
-        1. is_available()을 이용하는 방법입니다.
+        - is_available()을 이용하는 방법입니다.
         ```
         import torch 
         torch.cuda.is_available()
@@ -26,7 +26,7 @@
 
         제대로 인식되었다면 위의 그림과 같이 True가 나타납니다. 만약 False가 나왔다면 아래의 오류 해결 방법을 확인하세요.
 
-        2. device_count()을 이용하는 방법입니다.
+        - device_count()을 이용하는 방법입니다.
         ```
         import torch
         torch.cuda.device_count()
@@ -36,7 +36,7 @@
 
         제대로 인식되었다면 위의 그림과 같이 기기에 인식된 gpu의 개수가 표시됩니다.
 
-        3. device()을 이용하는 방법입니다.
+        - device()을 이용하는 방법입니다.
         ```
         import torch
         torch.cuda.device(0)
@@ -86,7 +86,7 @@
 
         ![](./GPU_인식_확인_방법/.figures/p11.png =1000x)
 
-        1. tensorflow
+        - tensorflow
             gpu를 이용하기 위해서는 tensorflow가 아닌 tensorflow-gpu 라이브러리를 설치해야 하고 CUDA와 CuDNN에 맞는 tensorflow-gpu 버전은 https://www.tensorflow.org/install/source_windows#tested_build_configurations 에서 확인할 수 있습니다.
 
             ![](./GPU_인식_확인_방법/.figures/p12.png =1000x)
@@ -96,7 +96,7 @@
             pip install tensorflow-gpu==2.4.0
             ```
 
-        2. pytorch
+        - pytorch
             pytorch(torch)는 홈페이지에서 OS, Package, CUDA 버전등을 선택하면 자동으로 pip 설치 명령어를 생성해줍니다. pytorch 홈페이지 주소는 https://pytorch.org/get-started/locally/ 입니다. 생성된 명령어를 jupyter notebook 또는 spark가 설치되어 있는 docker에 접속하여 입력하면 자동으로 설치됩니다.
 
             ![](./GPU_인식_확인_방법/.figures/p13.png =1000x)
