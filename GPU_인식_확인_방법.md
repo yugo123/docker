@@ -58,9 +58,7 @@ torch.cuda.device(0)
 제대로 인식되었다면 위의 그림과 같이 device로 잡힌 gpu의 종류를 보여줍니다.
 
 ## 2. GPU 인식 관련 오류
-torch.cuda.is_available()이 False로 나오거나 device_lib.list_local_devices()에서 GPU가 인식되지 않는 경우 다음의 유형을 확인해야 합니다.
-
-GPU 서버를 이용하는 경우 2.1과 2.2는 이미 제대로 구성되었기 때문에 2.3부터 확인하세요!
+<span style="color:darkslategray;background:lightblue;">**Note:** torch.cuda.is_available()이 False로 나오거나 device_lib.list_local_devices()에서 GPU가 인식되지 않는 경우 다음의 유형을 확인해야 합니다. GPU 서버를 이용하는 경우 2.1과 2.2는 이미 제대로 구성되었기 때문에 2.3부터 확인하세요! </span>
 
 ### 1. CUDA의 설치 여부
 CUDA는 그래픽카드에서 병렬처리를 할 수 있는 플랫폼 및 API 모델로 그래픽 카드를 이용하여 GPU 연산을 이용하기 위해서는 CUDA가 무조건 필요합니다.
