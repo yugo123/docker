@@ -16,7 +16,7 @@
         제대로 인식되었다면 위의 그림과 같이 'CPU:0'와 보유하고 있는 GPU의 종류가 나타납니다.
     
     2. pytorch
-        1.2.1 is_available()을 이용하는 방법입니다.
+        1. is_available()을 이용하는 방법입니다.
         ```
         import torch 
         torch.cuda.is_available()
@@ -26,7 +26,7 @@
 
         제대로 인식되었다면 위의 그림과 같이 True가 나타납니다. 만약 False가 나왔다면 아래의 오류 해결 방법을 확인하세요.
 
-        1.2.2 device_count()을 이용하는 방법입니다.
+        2. device_count()을 이용하는 방법입니다.
         ```
         import torch
         torch.cuda.device_count()
@@ -36,7 +36,7 @@
 
         제대로 인식되었다면 위의 그림과 같이 기기에 인식된 gpu의 개수가 표시됩니다.
 
-        1.2.3 device()을 이용하는 방법입니다.
+        3. device()을 이용하는 방법입니다.
         ```
         import torch
         torch.cuda.device(0)
@@ -45,12 +45,12 @@
         ![](./GPU_인식_확인_방법/.figures/p4.png =300x)
         제대로 인식되었다면 위의 그림과 같이 device로 잡힌 gpu의 종류를 보여줍니다.
 
-## 2. GPU 인식 관련 오류
+2. GPU 인식 관련 오류
     torch.cuda.is_available()이 False로 나오거나 device_lib.list_local_devices()에서 GPU가 인식되지 않는 경우 다음의 유형을 확인해야 합니다.
 
     GPU 서버를 이용하는 경우 2.1과 2.2는 이미 제대로 구성되었기 때문에 2.3부터 확인하세요!
 
-    ### 2.1 CUDA의 설치 여부
+    1. CUDA의 설치 여부
         CUDA는 그래픽카드에서 병렬처리를 할 수 있는 플랫폼 및 API 모델로 그래픽 카드를 이용하여 GPU 연산을 이용하기 위해서는 CUDA가 무조건 필요합니다.
 
         그래픽 카드에 맞는 CUDA 버전은 다음의 사이트를 통해 확인할 수 있습니다.
@@ -68,7 +68,7 @@
 
         ![](./GPU_인식_확인_방법/.figures/p7.png =500x)
 
-    ### 2.2 CuDNN
+    2. CuDNN
         CuDNN은 tensorflow와 pytorch에서 딥러닝 학습을 수행하는데 도움을 주는 라이브러리로 CUDA 버전에 맞는 CuDNN toolkit이 필요합니다.
 
         CuDNN은 https://developer.nvidia.com/rdp/cudnn-archive 에서 다운로드 받을 수 있고 다운로드를 하기 위해서는 회원가입 및 로그인이 필요합니다.
@@ -81,12 +81,12 @@
 
         ![](./GPU_인식_확인_방법/.figures/p10.png =1000x)
     
-    ### 2.3 tensorflow 및 torch 버전 확인
+    3. tensorflow 및 torch 버전 확인
         만약 gpu 코드로 작성했지만 cpu로만 연산이 되거나, 아래 그림과 같이 device 종류가 XLA_CPU, XLA_GPU로 되어 있다면 tensorflow 버전이 잘못 설정되어있을 확률이 높다.
 
         ![](./GPU_인식_확인_방법/.figures/p11.png =1000x)
 
-        2.3.1 tensorflow
+        1. tensorflow
             gpu를 이용하기 위해서는 tensorflow가 아닌 tensorflow-gpu 라이브러리를 설치해야 하고 CUDA와 CuDNN에 맞는 tensorflow-gpu 버전은 https://www.tensorflow.org/install/source_windows#tested_build_configurations 에서 확인할 수 있습니다.
 
             ![](./GPU_인식_확인_방법/.figures/p12.png =1000x)
@@ -96,7 +96,7 @@
             pip install tensorflow-gpu==2.4.0
             ```
 
-        2.3.2 pytorch
+        2. pytorch
             pytorch(torch)는 홈페이지에서 OS, Package, CUDA 버전등을 선택하면 자동으로 pip 설치 명령어를 생성해줍니다. pytorch 홈페이지 주소는 https://pytorch.org/get-started/locally/ 입니다. 생성된 명령어를 jupyter notebook 또는 spark가 설치되어 있는 docker에 접속하여 입력하면 자동으로 설치됩니다.
 
             ![](./GPU_인식_확인_방법/.figures/p13.png =1000x)
@@ -104,9 +104,9 @@
             ![](./GPU_인식_확인_방법/.figures/p14.png =1000x)
         
 
-## 3. cpu만 사용하는 코드에서 gpu 사용하는 코드로 변환 방법
+3. cpu만 사용하는 코드에서 gpu 사용하는 코드로 변환 방법
 
-    ### 3.1 tensorflow-gpu
+    1. tensorflow-gpu
         tensorflow-gpu 라이브러리를 설치하였고 CUDA가 설치되었다면 기본적으로 GPU:0를 이용해 연산을 진행합니다.
 
         
@@ -146,7 +146,7 @@
         ```
         위와 같이 mirrored_strategy.scope()를 두개로 분리하여 적용할 경우 변수나 method가 꼬여서 계산되지 않는 경우가 생기므로 하나의 scope 구문내에서 모든 함수와 변수를 처리하길 권장드립니다.
 
-    ### 3.2 pytorch
+    2. pytorch
         pytorch도 GPU가 인식되어있다면 GPU:0를 기본적으로 사용합니다.        
         
         pytorch에서도 GPU를 이용하기 위해서는 tf.device와 똑같이 torch.device()를 이용합니다.
