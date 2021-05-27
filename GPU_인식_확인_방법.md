@@ -4,7 +4,7 @@
 # GPU 서버에서 GPU 인식 확인 방법
 
 ## 1. GPU 인식 확인
-    1. tensorflow
+###    1. tensorflow
         device_lib을 이용하는 방법입니다.
         ```
         from tensorflow.python.client import device_lib
@@ -15,7 +15,7 @@
 
         제대로 인식되었다면 위의 그림과 같이 'CPU:0'와 보유하고 있는 GPU의 종류가 나타납니다.
     
-    2. pytorch
+###    2. pytorch
         - is_available()을 이용하는 방법입니다.
         ```
         import torch 
@@ -50,7 +50,7 @@
 
     GPU 서버를 이용하는 경우 2.1과 2.2는 이미 제대로 구성되었기 때문에 2.3부터 확인하세요!
 
-    1. CUDA의 설치 여부
+###    1. CUDA의 설치 여부
         CUDA는 그래픽카드에서 병렬처리를 할 수 있는 플랫폼 및 API 모델로 그래픽 카드를 이용하여 GPU 연산을 이용하기 위해서는 CUDA가 무조건 필요합니다.
 
         그래픽 카드에 맞는 CUDA 버전은 다음의 사이트를 통해 확인할 수 있습니다.
@@ -68,7 +68,7 @@
 
         ![](./GPU_인식_확인_방법/.figures/p7.png =500x)
 
-    2. CuDNN
+###    2. CuDNN
         CuDNN은 tensorflow와 pytorch에서 딥러닝 학습을 수행하는데 도움을 주는 라이브러리로 CUDA 버전에 맞는 CuDNN toolkit이 필요합니다.
 
         CuDNN은 https://developer.nvidia.com/rdp/cudnn-archive 에서 다운로드 받을 수 있고 다운로드를 하기 위해서는 회원가입 및 로그인이 필요합니다.
@@ -81,7 +81,7 @@
 
         ![](./GPU_인식_확인_방법/.figures/p10.png =1000x)
     
-    3. tensorflow 및 torch 버전 확인
+###    3. tensorflow 및 torch 버전 확인
         만약 gpu 코드로 작성했지만 cpu로만 연산이 되거나, 아래 그림과 같이 device 종류가 XLA_CPU, XLA_GPU로 되어 있다면 tensorflow 버전이 잘못 설정되어있을 확률이 높다.
 
         ![](./GPU_인식_확인_방법/.figures/p11.png =1000x)
@@ -106,7 +106,7 @@
 
 ## 3. cpu만 사용하는 코드에서 gpu 사용하는 코드로 변환 방법
 
-    1. tensorflow-gpu
+###    1. tensorflow-gpu
         tensorflow-gpu 라이브러리를 설치하였고 CUDA가 설치되었다면 기본적으로 GPU:0를 이용해 연산을 진행합니다.
 
         
@@ -146,7 +146,7 @@
         ```
         위와 같이 mirrored_strategy.scope()를 두개로 분리하여 적용할 경우 변수나 method가 꼬여서 계산되지 않는 경우가 생기므로 하나의 scope 구문내에서 모든 함수와 변수를 처리하길 권장드립니다.
 
-    2. pytorch
+###    2. pytorch
         pytorch도 GPU가 인식되어있다면 GPU:0를 기본적으로 사용합니다.        
         
         pytorch에서도 GPU를 이용하기 위해서는 tf.device와 똑같이 torch.device()를 이용합니다.
