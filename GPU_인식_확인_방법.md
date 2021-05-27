@@ -3,8 +3,8 @@
 
 # GPU 서버에서 GPU 인식 확인 방법
 
-## 1. GPU 인식 확인
-    ### 1.1 tensorflow
+1. GPU 인식 확인
+    1. tensorflow
         device_lib을 이용하는 방법입니다.
         ```
         from tensorflow.python.client import device_lib
@@ -15,7 +15,7 @@
 
         제대로 인식되었다면 위의 그림과 같이 'CPU:0'와 보유하고 있는 GPU의 종류가 나타납니다.
     
-    ### 1.2 pytorch
+    2. pytorch
         1.2.1 is_available()을 이용하는 방법입니다.
         ```
         import torch 
