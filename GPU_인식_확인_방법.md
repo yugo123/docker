@@ -18,9 +18,7 @@
 
 ## 1. GPU 인식 확인
 ### 1. tensorflow
-                
-- device_lib을 이용하는 방법입니다.
-                
+                                
 ```
 from tensorflow.python.client import device_lib
 device_lib.list_local_devices()
